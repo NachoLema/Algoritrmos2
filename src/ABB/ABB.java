@@ -43,6 +43,7 @@ public class ABB {
 
     }
 
+
     public String Ascendente(){
         return AscendenteAux(raiz, new String(""));
     }
@@ -67,27 +68,6 @@ public class ABB {
 
 
 
-       /* if(raiz.getIzq() == null && raiz.getDer() == null){
-            System.out.println(raiz.getDato());
-        } else if(raiz.getIzq() != null && raiz.getDer() == null) {
-                AscendenteAux(raiz.getIzq());
-            System.out.println(raiz.getIzq().getDato());
-        } else if (raiz.getDer() != null && raiz.getIzq() == null) {
-                AscendenteAux(raiz.getDer());
-            System.out.println(raiz.getDer().getDato());
-        } else {
-            AscendenteAux(raiz.getIzq());
-            AscendenteAux(raiz.getDer());
-            System.out.println(raiz.getIzq().getDato());
-            System.out.println(raiz.getDato());
-
-            System.out.println(raiz.getDer().getDato());
-        }*/
-
-
-
-
-
     }
 
     public void Ascendente2 (){
@@ -103,23 +83,6 @@ public class ABB {
             Ascendente2Aux(nodo.getDer());
         }
 
-
-        /*if(nodo != null) {
-
-            if(nodo.getIzq() != null){
-                Ascendente2Aux(nodo.getIzq());
-                System.out.println(nodo.getIzq().getDato());
-            }
-
-           System.out.println(nodo.getDato());
-
-
-            if(nodo.getDer() != null){
-                Ascendente2Aux(nodo.getDer());
-                System.out.println(nodo.getDer().getDato());
-            }
-
-        }*/
 
     }
     public void Descendente(){
