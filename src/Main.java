@@ -20,7 +20,13 @@ public static void main(String[]args){
 
        // System.out.println(arbol.Pertenece2Eficiente(213));
        // arbol.Ascendente3();
-        arbol.Descendente3();
+       // arbol.Descendente3();
+
+        /*System.out.println(arbol.BorrarMinimo());
+        System.out.println("-------");
+        ABB.printArbol(arbol);*/
+
+        System.out.println(arbol.CantidadMayores(7));
 
 
 

@@ -1,5 +1,7 @@
 package ABB;
 
+import AB.AB;
+
 public class ABB {
     private NodoABB raiz;
 
@@ -204,5 +206,62 @@ public class ABB {
         }
     }
 
+    public int BorrarMinimo(){
+        if(this.raiz.getIzq() == null){
+            this.raiz = raiz.getDer();
+            return raiz.getDato();
+        } else {
+          return  BorrarMinimoAux(this.raiz.getIzq());
+        }
+    }
+
+    private int BorrarMinimoAux(NodoABB raiz) {
+
+        int min;
+            if(raiz.getIzq().getIzq() == null){
+                min = raiz.getIzq().getDato();
+                raiz.setIzq(raiz.getIzq().getDer());
+
+                return min;
+            } else {
+                return BorrarMinimoAux(raiz.getIzq());
+            }
+
+
+
+
+
+
+    }
+
+    public static void printArbol(ABB a) {
+        imprimirNodo(a.raiz);
+    }
+
+    private static void imprimirNodo(NodoABB nodo) {
+        if (nodo != null) {
+            System.out.println(nodo.getDato());
+            imprimirNodo(nodo.getIzq());
+            imprimirNodo(nodo.getDer());
+        }
+
+    }
+
+    public int CantidadMayores(int k){
+        return CantidadMayoresAux(this.raiz,k);
+    }
+
+    private int CantidadMayoresAux(NodoABB raiz, int k) {
+        return  1;
+        /*if(raiz != null){
+
+            if(k < raiz.getDato()){
+                return 1 + CantidadMayoresAux(raiz.getDer(),k) + CantidadMayoresAux(raiz.getIzq(),k);
+            } else {
+                return CantidadMayoresAux(raiz.getDer(),k) + CantidadMayoresAux(raiz.getIzq(),k);
+            }
+
+        }*/
+    }
 
 }
