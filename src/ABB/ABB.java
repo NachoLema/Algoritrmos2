@@ -190,5 +190,29 @@ public class ABB {
 
     }
 
+    public int evaluarValor(int valor) {
+        return evaluarValorAux(raiz , valor , 0);
+    }
+
+    public int evaluarValorAux(NodoABB nodo , int valor , int c) {
+
+        if (nodo != null) {
+            if(nodo.getDato() > valor){
+
+                c++;
+            }
+            return evaluarValorAux(nodo.getIzq() , valor , c)
+                    + evaluarValorAux(nodo.getDer() , valor , 0);
+
+        }else{
+
+            return c;
+        }
+
+
+
+
+    }
+
 
 }
