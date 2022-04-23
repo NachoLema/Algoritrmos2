@@ -1,5 +1,7 @@
 package ABB;
 
+import AB.AB;
+
 public class ABB {
     private NodoABB raiz;
 
@@ -14,6 +16,19 @@ public class ABB {
 
     public void setRaiz(NodoABB raiz) {
         this.raiz = raiz;
+    }
+
+    public static void printArbol(ABB a) {
+        imprimirNodo(a.raiz);
+    }
+
+    private static void imprimirNodo(NodoABB nodo) {
+        if (nodo != null) {
+            System.out.println(nodo.getDato());
+            imprimirNodo(nodo.getIzq());
+            imprimirNodo(nodo.getDer());
+        }
+
     }
 
     public void insertar(int e){
@@ -141,6 +156,37 @@ public class ABB {
             return false;
 
         }
+
+    }
+
+
+    public int BorrarMinimo(){
+
+         return BorrarMinimoAux(this.raiz);
+    }
+
+
+    private int BorrarMinimoAux(NodoABB raiz) {
+
+        int aBorrar = Integer.MIN_VALUE;
+
+        if(raiz != null) {
+
+            if (raiz.getIzq().getIzq() != null) {
+
+                return BorrarMinimoAux(raiz.getIzq());
+
+            }else{
+
+                aBorrar = raiz.getIzq().getDato();
+                raiz.setIzq(raiz.getIzq().getDer());
+
+                return aBorrar;
+            }
+
+        }
+
+        return aBorrar;
 
     }
 
