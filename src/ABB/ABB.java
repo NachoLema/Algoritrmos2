@@ -1,36 +1,41 @@
 package ABB;
 
 public class ABB {
-    private NodoAB raiz;
+    private NodoABB raiz;
 
-    public NodoAB getRaiz() {
+
+    public ABB(NodoABB raiz) {
+        this.raiz = raiz;
+    }
+
+    public NodoABB getRaiz() {
         return raiz;
     }
 
-    public void setRaiz(NodoAB raiz) {
+    public void setRaiz(NodoABB raiz) {
         this.raiz = raiz;
     }
 
     public void insertar(int e){
         if(raiz == null){
-            raiz = new NodoAB(e);
+            raiz = new NodoABB(e);
         }else{
             insertarRec(this.raiz,e);
         }
 
     }
 
-    private void insertarRec(NodoAB n, int e) {
+    private void insertarRec(NodoABB n, int e) {
 
         if(e < n.getDato()){
             if(n.getIzq() == null){
-                n.setIzq(new NodoAB(e));
+                n.setIzq(new NodoABB(e));
             } else {
                 insertarRec(n.getIzq(),e);
             }
         } else {
             if(n.getDer() == null){
-                n.setDer(new NodoAB(e));
+                n.setDer(new NodoABB(e));
             } else {
                 insertarRec(n.getDer(),e);
             }
@@ -42,7 +47,7 @@ public class ABB {
         return AscendenteAux(raiz, new String(""));
     }
 
-    private String AscendenteAux(NodoAB raiz, String st) {
+    private String AscendenteAux(NodoABB raiz, String st) {
         if (raiz == null ){
             return st+="";
         } else {
@@ -89,7 +94,7 @@ public class ABB {
         Ascendente2Aux(raiz);
     }
 
-    private void Ascendente2Aux(NodoAB nodo) {
+    private void Ascendente2Aux(NodoABB nodo) {
 
 
         if(nodo != null) {
@@ -121,7 +126,7 @@ public class ABB {
         DescendenteAux(raiz);
     }
 
-    private void DescendenteAux(NodoAB n) {
+    private void DescendenteAux(NodoABB n) {
 
         if(n != null){
 
@@ -136,7 +141,7 @@ public class ABB {
         return PerteneceAux(this.raiz, e);
     }
 
-    private boolean PerteneceAux(NodoAB raiz, int e) {
+    private boolean PerteneceAux(NodoABB raiz, int e) {
         if(raiz != null){
             if(raiz.getDato() == e){
                 return true;
@@ -153,4 +158,28 @@ public class ABB {
 
 
     }
+
+    public boolean Pertenece2(int e){
+        return PerteneceAux2(this.raiz, e);
+    }
+
+    private boolean PerteneceAux2(NodoABB raiz, int e) {
+
+        if(raiz != null){
+            if(raiz.getDato() == e){
+                return true;
+            }else if(raiz.getDato() > e) {
+                return PerteneceAux2(raiz.getIzq(),e);
+            }else{
+               return   PerteneceAux2(raiz.getDer(),e);
+
+            }
+        } else {
+            return false;
+
+        }
+
+    }
+
+
 }
