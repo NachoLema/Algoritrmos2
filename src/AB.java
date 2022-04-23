@@ -124,6 +124,27 @@ public class AB {
         return head;
     }
 
+
+    public static AB espejo(AB a){
+
+        return new AB(espejoAux(a.raiz));
+
+    }
+
++
+    private static NodoAB espejoAux (NodoAB nodo){
+
+        NodoAB head = null;
+
+        if (nodo != null) {
+            head = new NodoAB(nodo.getDato(), espejoAux(nodo.getDer()),clonAux(nodo.getIzq()));
+        }
+
+        return head;
+
+
+    }
+
     public static void printArbol(AB a) {
         imprimirNodo(a.raiz);
     }
