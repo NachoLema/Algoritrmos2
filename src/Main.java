@@ -7,9 +7,11 @@ public static void main(String[]args){
 
         AB arbol=new AB(raiz);
 
+
         AB.printArbol(arbol);
-        System.out.println("---------------------------");
-        AB.printArbol(AB.espejo(arbol));
+        System.out.println("---------");
+
+        AB.printArbol(AB.espejo(new AB(raiz)));
 
 
 

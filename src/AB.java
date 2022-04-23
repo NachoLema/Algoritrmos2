@@ -70,8 +70,14 @@ public class AB {
             } else {
                 return equilibrado(new AB(a.raiz.getIzq())) && equilibrado(new AB(a.raiz.getDer()));
             }
+
+
         }
     }
+
+
+
+
 
     public static boolean equilibrado2(AB arb) {
         if (arb == null) {
@@ -131,13 +137,13 @@ public class AB {
 
     }
 
-+
+
     private static NodoAB espejoAux (NodoAB nodo){
 
         NodoAB head = null;
 
         if (nodo != null) {
-            head = new NodoAB(nodo.getDato(), espejoAux(nodo.getDer()),clonAux(nodo.getIzq()));
+            head = new NodoAB(nodo.getDato(), espejoAux(nodo.getDer()),espejoAux(nodo.getIzq()));
         }
 
         return head;
@@ -165,4 +171,5 @@ public class AB {
     private static NodoAB clonAux2(NodoAB raiz) {
         return raiz != null ? new NodoAB(raiz.getDato(), clonAux2(raiz.getIzq()), clonAux2(raiz.getDer())) : null;
     }
+
 }
