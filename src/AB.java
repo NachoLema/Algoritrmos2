@@ -70,6 +70,7 @@ public class AB {
             } else {
                 return equilibrado(new AB(a.raiz.getIzq())) && equilibrado(new AB(a.raiz.getDer()));
             }
+
         }
     }
 
