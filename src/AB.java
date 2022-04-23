@@ -73,6 +73,7 @@ public class AB {
         }
     }
 
+
     public static boolean equilibrado2(AB arb) {
         if (arb == null) {
             return true;
