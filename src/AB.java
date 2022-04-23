@@ -150,4 +150,17 @@ public class AB {
     private static NodoAB clonAux2(NodoAB raiz) {
         return raiz != null ? new NodoAB(raiz.getDato(), clonAux2(raiz.getIzq()), clonAux2(raiz.getDer())) : null;
     }
+
+    public static AB espejo(AB a) {
+        return new AB(espejoAux(a.raiz));
+    }
+
+    private static NodoAB espejoAux(NodoAB nodo) {
+        NodoAB head = null;
+        if (nodo != null) {
+            head = new NodoAB(nodo.getDato(), espejoAux(nodo.getDer()), espejoAux(nodo.getIzq()));
+        }
+
+        return head;
+    }
 }
