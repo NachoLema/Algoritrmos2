@@ -1,20 +1,26 @@
-import AB.AB;
-import AB.NodoAB;
+import ABB.ABB;
+import ABB.NodoABB;
+
+
 
 public class Main{
 public static void main(String[]args){
 
-        NodoAB subIzq=new NodoAB(6,new NodoAB(4,null,null),new NodoAB(9,null,null));
-        NodoAB subDer=new NodoAB(18,new NodoAB(15,null,null),new NodoAB(21,null,null));
-        NodoAB raiz=new NodoAB(10,subIzq,subDer);
+        NodoABB subIzq=new NodoABB(6,new NodoABB(4,null,null),new NodoABB(9,null,null));
+        NodoABB subDer=new NodoABB(18,new NodoABB(15,null,null),new NodoABB(21,null,null));
+        NodoABB raiz=new NodoABB(10,subIzq,subDer);
 
-        AB arbol=new AB(raiz);
+        ABB arbol= new ABB(raiz);
 
 
-        AB.printArbol(arbol);
+       // AB.printArbol(arbol);
         System.out.println("---------");
 
-        AB.printArbol(AB.espejo(new AB(raiz)));
+       // AB.printArbol(AB.espejo(new AB(raiz)));
+
+       // System.out.println(arbol.Pertenece2Eficiente(213));
+       // arbol.Ascendente3();
+        arbol.Descendente3();
 
 
 
