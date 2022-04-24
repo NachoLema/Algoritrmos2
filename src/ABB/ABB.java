@@ -318,7 +318,22 @@ public class ABB {
 
     }
 
+    public void elementosPorNivel() {
+        elementosPorNivelAux(raiz  , 0);
+    }
 
+    public  void elementosPorNivelAux(NodoABB nodo ,int pasada) {
+
+        if (nodo != null) {
+            System.out.println("nivel : "+pasada);
+            elementosNivel(pasada);
+            pasada++;
+            elementosPorNivelAux( nodo.getIzq() , pasada);
+
+        }
+
+
+    }
 
 
 
