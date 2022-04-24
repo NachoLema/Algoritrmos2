@@ -380,4 +380,59 @@ public class ABB {
         }
     }
 
+    /*Desarrolle un algoritmo que retorne una lista de tuplas con todos los elementos del ABB y el
+    número del nivel en el que se encuentra cada uno.*/
+
+    public List<String> AbbPorNivel2(){
+       return AbbPorNivelAux(this.raiz,0, new ArrayList<String>());
+    }
+
+    private List<String> AbbPorNivelAux(NodoABB raiz, int paso, ArrayList<String> l) {
+
+        if(raiz != null){
+
+            String add = "Nivel: "+ paso + " Valores: "+raiz.getDato();
+
+            paso ++;
+            AbbPorNivelAux(raiz.getIzq(), paso, l);
+            AbbPorNivelAux(raiz.getDer(), paso, l);
+            l.add(add);
+
+
+
+        }
+        return l;
+        }
+
+    /*Desarrolle un algoritmo que, recibiendo un valor entero k, imprima la cantidad de elementos del
+    nivel k.*/
+
+    public int CantidadEnK(int k){
+        return CantidadEnKRec(this.raiz, k, 0);
+    }
+
+    private int CantidadEnKRec(NodoABB raiz, int k, int paso) {
+
+        if(raiz != null){
+
+            if(k == paso){
+             return 1;
+            } else {
+                paso ++;
+                return CantidadEnKRec(raiz.getIzq(),k,paso)+
+                        CantidadEnKRec(raiz.getDer(),k,paso)   ;
+
+            }
+
+        } else {
+            return 0;
+        }
+
+
+    }
+
+
 }
+
+
+

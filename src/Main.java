@@ -31,7 +31,8 @@ public static void main(String[]args){
 
        // System.out.println(arbol.Nivel(0));
 
-        arbol.AbbPorNivel();
+       // System.out.println(arbol.AbbPorNivel2());
+        System.out.println(arbol.CantidadEnK(2));
 
 
 
