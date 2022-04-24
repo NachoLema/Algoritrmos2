@@ -281,6 +281,7 @@ public class ABB {
         return OrdenadosRec(this.raiz, new ArrayList<Integer>());
     }
 
+
     private List<Integer> OrdenadosRec(NodoABB raiz, ArrayList<Integer> l) {
 
         if(raiz != null){
@@ -295,5 +296,26 @@ public class ABB {
         }
     }
 
+    /*Desarrolle un algoritmo que, recibiendo un valor entero k, retorne una lista con los elementos
+    que son mayores a k.*/
+    public List<Integer> MayoresK(int k){
+        return MayoresKAux(this.raiz,k, new ArrayList<Integer>());
+    }
+
+    private List<Integer> MayoresKAux(NodoABB raiz, int k, List<Integer> l) {
+
+        if(raiz != null){
+            if(raiz.getDato() > k){
+                MayoresKAux(raiz.getIzq(),k,l);
+                MayoresKAux(raiz.getDer(),k,l);
+                l.add(raiz.getDato());
+            } else {
+                MayoresKAux(raiz.getDer(),k,l);
+            }
+            return l;
+        } else{
+            return null;
+        }
+    }
 
 }
