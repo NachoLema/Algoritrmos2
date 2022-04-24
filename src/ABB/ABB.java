@@ -33,46 +33,45 @@ public class ABB {
 
     }
 
-    public void insertar(int e){
-        if(raiz == null){
+    public void insertar(int e) {
+        if (raiz == null) {
             raiz = new NodoABB(e);
-        }else{
-            insertarRec(this.raiz,e);
+        } else {
+            insertarRec(this.raiz, e);
         }
 
     }
 
     private void insertarRec(NodoABB n, int e) {
 
-        if(e < n.getDato()){
-            if(n.getIzq() == null){
+        if (e < n.getDato()) {
+            if (n.getIzq() == null) {
                 n.setIzq(new NodoABB(e));
             } else {
-                insertarRec(n.getIzq(),e);
+                insertarRec(n.getIzq(), e);
             }
         } else {
-            if(n.getDer() == null){
+            if (n.getDer() == null) {
                 n.setDer(new NodoABB(e));
             } else {
-                insertarRec(n.getDer(),e);
+                insertarRec(n.getDer(), e);
             }
         }
 
     }
 
 
-    public String Ascendente(){
+    public String Ascendente() {
         return AscendenteAux(raiz, new String(""));
     }
 
     private String AscendenteAux(NodoABB raiz, String st) {
-        if (raiz == null ){
-            return st+="";
+        if (raiz == null) {
+            return st += "";
         } else {
 
 
-            if(raiz.getIzq() == null)
-            {
+            if (raiz.getIzq() == null) {
                 return st += String.valueOf(raiz.getDato());
             } else {
 
@@ -81,34 +80,31 @@ public class ABB {
         }
 
 
-
-
-
-
     }
 
-    public void Ascendente2 (){
+    public void Ascendente2() {
         Ascendente2Aux(raiz);
     }
 
     private void Ascendente2Aux(NodoABB nodo) {
 
 
-        if(nodo != null) {
+        if (nodo != null) {
             Ascendente2Aux(nodo.getIzq());
-            System.out.println(nodo.getDato()+" ");
+            System.out.println(nodo.getDato() + " ");
             Ascendente2Aux(nodo.getDer());
         }
 
 
     }
-    public void Descendente(){
+
+    public void Descendente() {
         DescendenteAux(raiz);
     }
 
     private void DescendenteAux(NodoABB n) {
 
-        if(n != null){
+        if (n != null) {
 
             DescendenteAux(n.getDer());
             System.out.println(n.getDato());
@@ -117,41 +113,37 @@ public class ABB {
         }
     }
 
-    public boolean Pertenece(int e){
+    public boolean Pertenece(int e) {
         return PerteneceAux(this.raiz, e);
     }
 
     private boolean PerteneceAux(NodoABB raiz, int e) {
-        if(raiz != null){
-            if(raiz.getDato() == e){
+        if (raiz != null) {
+            if (raiz.getDato() == e) {
                 return true;
-            }else {
-                return PerteneceAux(raiz.getIzq(),e) || PerteneceAux(raiz.getDer(),e);
+            } else {
+                return PerteneceAux(raiz.getIzq(), e) || PerteneceAux(raiz.getDer(), e);
             }
         } else {
             return false;
         }
 
 
-
-
-
-
     }
 
-    public boolean Pertenece2(int e){
+    public boolean Pertenece2(int e) {
         return PerteneceAux2(this.raiz, e);
     }
 
     private boolean PerteneceAux2(NodoABB raiz, int e) {
 
-        if(raiz != null){
-            if(raiz.getDato() == e){
+        if (raiz != null) {
+            if (raiz.getDato() == e) {
                 return true;
-            }else if(raiz.getDato() > e) {
-                return PerteneceAux2(raiz.getIzq(),e);
-            }else{
-               return   PerteneceAux2(raiz.getDer(),e);
+            } else if (raiz.getDato() > e) {
+                return PerteneceAux2(raiz.getIzq(), e);
+            } else {
+                return PerteneceAux2(raiz.getDer(), e);
 
             }
         } else {
@@ -162,9 +154,9 @@ public class ABB {
     }
 
 
-    public int BorrarMinimo(){
+    public int BorrarMinimo() {
 
-         return BorrarMinimoAux(this.raiz);
+        return BorrarMinimoAux(this.raiz);
     }
 
 
@@ -172,13 +164,13 @@ public class ABB {
 
         int aBorrar = Integer.MIN_VALUE;
 
-        if(raiz != null) {
+        if (raiz != null) {
 
             if (raiz.getIzq().getIzq() != null) {
 
                 return BorrarMinimoAux(raiz.getIzq());
 
-            }else{
+            } else {
 
                 aBorrar = raiz.getIzq().getDato();
                 raiz.setIzq(raiz.getIzq().getDer());
@@ -192,34 +184,31 @@ public class ABB {
 
     }
 
-    public ArrayList<Integer> devolverValoresMayores(int valor){
+    public ArrayList<Integer> devolverValoresMayores(int valor) {
 
-        return devolverValoresMayoresAux(valor , raiz , new ArrayList<Integer>());
+        return devolverValoresMayoresAux(valor, raiz, new ArrayList<Integer>());
 
     }
 
-    private ArrayList<Integer> devolverValoresMayoresAux(int valor , NodoABB nodo , ArrayList<Integer> valores) {
+    private ArrayList<Integer> devolverValoresMayoresAux(int valor, NodoABB nodo, ArrayList<Integer> valores) {
 
-        if(nodo !=null){
-            if( nodo.getDato() > valor){
-                devolverValoresMayoresAux(valor , nodo.getIzq() , valores);
-                devolverValoresMayoresAux(valor , nodo.getDer() , valores);
+        if (nodo != null) {
+            if (nodo.getDato() > valor) {
+                devolverValoresMayoresAux(valor, nodo.getIzq(), valores);
+                devolverValoresMayoresAux(valor, nodo.getDer(), valores);
 
                 valores.add(nodo.getDato());
 
 
-            }else{
+            } else {
 
-                devolverValoresMayoresAux(valor , nodo.getDer() , valores);
+                devolverValoresMayoresAux(valor, nodo.getDer(), valores);
 
 
             }
 
 
             return valores;
-
-
-
 
 
         }
@@ -229,111 +218,150 @@ public class ABB {
     }
 
 
-
-
-
-
     public int evaluarValor(int valor) {
-        return evaluarValorAux(raiz , valor , 0);
+        return evaluarValorAux(raiz, valor, 0);
     }
 
-    public int evaluarValorAux(NodoABB nodo , int valor , int c) {
+    public int evaluarValorAux(NodoABB nodo, int valor, int c) {
 
         if (nodo != null) {
-            if(nodo.getDato() > valor){
+            if (nodo.getDato() > valor) {
 
                 c++;
             }
-            return evaluarValorAux(nodo.getIzq() , valor , c)
-                    + evaluarValorAux(nodo.getDer() , valor , 0);
+            return evaluarValorAux(nodo.getIzq(), valor, c)
+                    + evaluarValorAux(nodo.getDer(), valor, 0);
 
-        }else{
+        } else {
 
             return c;
         }
 
 
-
-
     }
-
-
-
 
 
     public int retonarNivel(int valor) {
-        return retonarNivelAux(raiz , valor , 0);
+        return retonarNivelAux(raiz, valor, 0);
     }
 
-    public int retonarNivelAux(NodoABB nodo , int valor , int pasada) {
+    public int retonarNivelAux(NodoABB nodo, int valor, int pasada) {
 
-        if(nodo !=null){
+        if (nodo != null) {
 
-            if (nodo.getDato() == valor){
+            if (nodo.getDato() == valor) {
 
                 return pasada;
 
-            }else{
+            } else {
                 pasada++;
-                int nivelIz = retonarNivelAux(nodo.getIzq(), valor , pasada);
-                int nivelDer =retonarNivelAux(nodo.getDer(), valor , pasada);
-                return Math.max(nivelDer,nivelIz);
+                int nivelIz = retonarNivelAux(nodo.getIzq(), valor, pasada);
+                int nivelDer = retonarNivelAux(nodo.getDer(), valor, pasada);
+                return Math.max(nivelDer, nivelIz);
             }
-
 
 
         }
         return -1;
 
 
-
     }
 
     public void elementosNivel(int nivel) {
-        elementoNivelAux(raiz , nivel , 0);
+        elementoNivelAux(raiz, nivel, 0);
     }
 
-    public  void elementoNivelAux(NodoABB nodo , int nivel , int pasada) {
+    public void elementoNivelAux(NodoABB nodo, int nivel, int pasada) {
 
-        if(nodo !=null){
+        if (nodo != null) {
 
-           if(pasada == nivel){
+            if (pasada == nivel) {
 
-               System.out.println(nodo.getDato());
+                System.out.println(nodo.getDato());
 
-           }else{
-               pasada ++;
+            } else {
+                pasada++;
 
-               elementoNivelAux(nodo.getIzq() , nivel , pasada);
-               elementoNivelAux(nodo.getDer() , nivel , pasada);
+                elementoNivelAux(nodo.getIzq(), nivel, pasada);
+                elementoNivelAux(nodo.getDer(), nivel, pasada);
 
 
-           }
+            }
 
 
         }
-
-
 
 
     }
 
     public void elementosPorNivel() {
-        elementosPorNivelAux(raiz  , 0);
+        elementosPorNivelAux(raiz, 0);
     }
 
-    public  void elementosPorNivelAux(NodoABB nodo ,int pasada) {
+    public void elementosPorNivelAux(NodoABB nodo, int pasada) {
 
         if (nodo != null) {
-            System.out.println("nivel : "+pasada);
+            System.out.println("nivel : " + pasada);
             elementosNivel(pasada);
             pasada++;
-            elementosPorNivelAux( nodo.getIzq() , pasada);
+            elementosPorNivelAux(nodo.getIzq(), pasada);
 
         }
 
 
     }
+
+
+    public ArrayList<String> elementosYsuNivel() {
+        return elementosYsuNivelAux(raiz, 0, new ArrayList<String>());
+    }
+
+    public ArrayList<String> elementosYsuNivelAux(NodoABB nodo, int pasada, ArrayList<String> lista) {
+
+        if (nodo != null) {
+            String aInsertar = "Nivel: " + pasada + " & valor: " + nodo.getDato();
+            pasada++;
+            lista.add(aInsertar);
+            elementosYsuNivelAux(nodo.getIzq(), pasada, lista);
+            elementosYsuNivelAux(nodo.getDer(), pasada, lista);
+
+
+        }
+
+        return lista;
+
+    }
+
+    public int cantElementosNivel(int nivel) {
+        return cantElementoNivelAux(raiz, nivel, 0);
+    }
+
+    public int cantElementoNivelAux(NodoABB nodo, int nivel, int pasada) {
+
+        if (nodo != null) {
+
+            if (pasada == nivel) {
+
+                return 1;
+
+            } else {
+                pasada++;
+
+                return (cantElementoNivelAux(nodo.getIzq(), nivel, pasada) + cantElementoNivelAux(nodo.getDer(), nivel, pasada));
+
+
+            }
+
+
+        }
+        return 0;
+
+    }
+
+
+
+
+
 
 
 

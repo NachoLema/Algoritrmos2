@@ -14,7 +14,7 @@ public static void main(String[]args){
 
 
         System.out.println("--------------------");
-        arbol.elementosPorNivel();
+        System.out.println(arbol.cantElementosNivel(2));
 
 
 
