@@ -14,7 +14,7 @@ public static void main(String[]args){
 
 
        // AB.printArbol(arbol);
-        System.out.println("---------");
+
 
        // AB.printArbol(AB.espejo(new AB(raiz)));
 
@@ -28,10 +28,10 @@ public static void main(String[]args){
 
        // System.out.println(arbol.CantidadMayores(18));
 
-       /* for(int i : arbol.MayoresK(15)){
-                System.out.println(i);
-        }*/
-        System.out.println(arbol.Nivel(0));
+
+       // System.out.println(arbol.Nivel(0));
+
+        arbol.AbbPorNivel();
 
 
 

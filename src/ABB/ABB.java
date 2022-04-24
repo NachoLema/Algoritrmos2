@@ -343,5 +343,41 @@ public class ABB {
         }
     }
 
+    /*Desarrolle un algoritmo que, recibiendo un valor entero k, imprima los elementos del nivel k.*/
+
+     public void ElementosEnK(int k){
+         ElementosEnKRec(this.raiz,k, 0);
+     }
+
+    private void ElementosEnKRec(NodoABB raiz, int k, int paso) {
+         if(raiz != null){
+
+             if(paso == k){
+                 System.out.print(raiz.getDato() + " ");
+             } else {
+                 paso++;
+                 ElementosEnKRec(raiz.getIzq(),k,paso);
+                 ElementosEnKRec(raiz.getDer(),k,paso);
+             }
+         }
+    }
+
+    /*Desarrolle un algoritmo que imprima el ABB en orden por niveles.*/
+
+    public void AbbPorNivel(){
+        AbbPorNivelAux(this.raiz,0);
+    }
+
+    private void AbbPorNivelAux(NodoABB raiz, int paso) {
+
+        if(raiz != null){
+
+           ElementosEnK(paso);
+            System.out.println();
+            AbbPorNivelAux(raiz.getIzq(),++paso);
+
+
+        }
+    }
 
 }
