@@ -26,7 +26,11 @@ public static void main(String[]args){
         System.out.println("-------");
         ABB.printArbol(arbol);*/
 
-        System.out.println(arbol.CantidadMayores(15));
+       // System.out.println(arbol.CantidadMayores(18));
+
+        for(int i : arbol.Ordenados()){
+                System.out.println(i);
+        }
 
 
 

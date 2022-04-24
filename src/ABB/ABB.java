@@ -2,6 +2,9 @@ package ABB;
 
 import AB.AB;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ABB {
     private NodoABB raiz;
 
@@ -267,6 +270,30 @@ public class ABB {
             return 0;
         }
 
+
+
     }
+
+     /* Desarrolle un algoritmo que retorne una lista con sus elementos ordenados de forma
+        ascendente.*/
+
+    public List<Integer> Ordenados(){
+        return OrdenadosRec(this.raiz, new ArrayList<Integer>());
+    }
+
+    private List<Integer> OrdenadosRec(NodoABB raiz, ArrayList<Integer> l) {
+
+        if(raiz != null){
+
+            OrdenadosRec(raiz.getIzq(),l);
+            l.add(raiz.getDato());
+            OrdenadosRec(raiz.getDer(),l);
+            return l;
+
+        } else {
+            return null;
+        }
+    }
+
 
 }
