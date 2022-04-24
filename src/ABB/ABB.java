@@ -2,6 +2,8 @@ package ABB;
 
 import AB.AB;
 
+import java.util.ArrayList;
+
 public class ABB {
     private NodoABB raiz;
 
@@ -190,6 +192,47 @@ public class ABB {
 
     }
 
+    public ArrayList<Integer> devolverValoresMayores(int valor){
+
+        return devolverValoresMayoresAux(valor , raiz , new ArrayList<Integer>());
+
+    }
+
+    private ArrayList<Integer> devolverValoresMayoresAux(int valor , NodoABB nodo , ArrayList<Integer> valores) {
+
+        if(nodo !=null){
+            if( nodo.getDato() > valor){
+                devolverValoresMayoresAux(valor , nodo.getIzq() , valores);
+                devolverValoresMayoresAux(valor , nodo.getDer() , valores);
+
+                valores.add(nodo.getDato());
+
+
+            }else{
+
+                devolverValoresMayoresAux(valor , nodo.getDer() , valores);
+
+
+            }
+
+
+            return valores;
+
+
+
+
+
+        }
+        return null;
+
+
+    }
+
+
+
+
+
+
     public int evaluarValor(int valor) {
         return evaluarValorAux(raiz , valor , 0);
     }
@@ -213,6 +256,71 @@ public class ABB {
 
 
     }
+
+
+
+
+
+    public int retonarNivel(int valor) {
+        return retonarNivelAux(raiz , valor , 0);
+    }
+
+    public int retonarNivelAux(NodoABB nodo , int valor , int pasada) {
+
+        if(nodo !=null){
+
+            if (nodo.getDato() == valor){
+
+                return pasada;
+
+            }else{
+                pasada++;
+                int nivelIz = retonarNivelAux(nodo.getIzq(), valor , pasada);
+                int nivelDer =retonarNivelAux(nodo.getDer(), valor , pasada);
+                return Math.max(nivelDer,nivelIz);
+            }
+
+
+
+        }
+        return -1;
+
+
+
+    }
+
+    public void elementosNivel(int nivel) {
+        elementoNivelAux(raiz , nivel , 0);
+    }
+
+    public  void elementoNivelAux(NodoABB nodo , int nivel , int pasada) {
+
+        if(nodo !=null){
+
+           if(pasada == nivel){
+
+               System.out.println(nodo.getDato());
+
+           }else{
+               pasada ++;
+
+               elementoNivelAux(nodo.getIzq() , nivel , pasada);
+               elementoNivelAux(nodo.getDer() , nivel , pasada);
+
+
+           }
+
+
+        }
+
+
+
+
+    }
+
+
+
+
 
 
 }

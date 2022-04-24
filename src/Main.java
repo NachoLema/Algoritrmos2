@@ -12,9 +12,9 @@ public static void main(String[]args){
 
         ABB arbol= new ABB(raiz);
 
-        ABB.printArbol(arbol);
+
         System.out.println("--------------------");
-        System.out.println(arbol.evaluarValor(18));
+        arbol.elementosNivel(2);
 
 
 
