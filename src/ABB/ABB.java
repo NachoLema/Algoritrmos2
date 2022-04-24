@@ -252,16 +252,21 @@ public class ABB {
     }
 
     private int CantidadMayoresAux(NodoABB raiz, int k) {
-        return  1;
-        /*if(raiz != null){
 
+        if(raiz != null){
             if(k < raiz.getDato()){
-                return 1 + CantidadMayoresAux(raiz.getDer(),k) + CantidadMayoresAux(raiz.getIzq(),k);
+                return 1 + CantidadMayoresAux(raiz.getIzq(),k) +
+                        CantidadMayoresAux(raiz.getDer(),k);
             } else {
-                return CantidadMayoresAux(raiz.getDer(),k) + CantidadMayoresAux(raiz.getIzq(),k);
+                return CantidadMayoresAux(raiz.getIzq(),k) +
+                        CantidadMayoresAux(raiz.getDer(),k);
             }
 
-        }*/
+
+        } else {
+            return 0;
+        }
+
     }
 
 }

@@ -26,7 +26,7 @@ public static void main(String[]args){
         System.out.println("-------");
         ABB.printArbol(arbol);*/
 
-        System.out.println(arbol.CantidadMayores(7));
+        System.out.println(arbol.CantidadMayores(15));
 
 
 
