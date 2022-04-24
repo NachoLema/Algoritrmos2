@@ -28,9 +28,10 @@ public static void main(String[]args){
 
        // System.out.println(arbol.CantidadMayores(18));
 
-        for(int i : arbol.MayoresK(15)){
+       /* for(int i : arbol.MayoresK(15)){
                 System.out.println(i);
-        }
+        }*/
+        System.out.println(arbol.Nivel(0));
 
 
 

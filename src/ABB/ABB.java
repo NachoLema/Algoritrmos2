@@ -317,5 +317,31 @@ public class ABB {
             return null;
         }
     }
+/*
+    Desarrolle un algoritmo que, recibiendo un valor entero, retorne el nivel en que se encuentra
+    dicho valor o -1 si no se encuentra.*/
+
+    public int Nivel (int k){
+        return NivelRec(this.raiz, k, 0);
+    }
+
+    private int NivelRec(NodoABB raiz, int k, int lvl) {
+
+        if(raiz != null){
+            if(raiz.getDato() != k){
+
+                lvl ++;
+                return Math.max(NivelRec(raiz.getIzq(),k, lvl),
+                        NivelRec(raiz.getDer(),k, lvl)  );
+
+            } else {
+              return lvl;
+            }
+
+        } else {
+            return -1;
+        }
+    }
+
 
 }
