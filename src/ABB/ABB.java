@@ -406,6 +406,25 @@ public class ABB {
 
     /*Desarrolle un algoritmo que, recibiendo un valor entero k, imprima la cantidad de elementos del
     nivel k.*/
+    
+    
+    public int CantidadElementosEnNivel(int k){
+       return CantidadElementosEnNivelRec(this.raiz,k);
+    }
+
+    private int CantidadElementosEnNivelRec(NodoABB raiz, int k) {
+        if(raiz != null){
+            if(k != 0){
+                k --;
+                return CantidadElementosEnNivelRec(raiz.getIzq(),k) +
+                        CantidadElementosEnNivelRec(raiz.getDer(),k);
+            } else {
+               return 1;
+            }
+        }
+        return 0;
+    }
+
 
     public int CantidadEnK(int k){
         return CantidadEnKRec(this.raiz, k, 0);
