@@ -449,8 +449,71 @@ public class ABB {
 
 
     }
+    /*Desarrolle un algoritmo que, recibiendo un valor entero, retorne el nivel en que se encuentra
+    dicho valor o -1 si no se encuentra.*/
+
+    public int RetNivelK(int k){
+        return RetNivelKRec(this.raiz,k,0);
+    }
+
+    private int RetNivelKRec(NodoABB raiz, int k, int i) {
+        if(raiz != null){
+            if(raiz.getDato()==k){
+                return i;
+            } else {
+                i ++;
+               return Math.max(RetNivelKRec(raiz.getIzq(),k,i),
+                       RetNivelKRec(raiz.getDer(),k,i)) ;
+            }
+
+        } else {
+            return -1;
+        }
+    }
+
+  //  Desarrolle un algoritmo que, recibiendo un valor entero k, imprima los elementos del nivel k.
+    public void ImpK(int k){
+        impKRec(this.raiz,k);
+    }
+
+    private void impKRec(NodoABB raiz, int k) {
+        if(raiz != null){
+
+            if(k == 0){
+                System.out.println(raiz.getDato());
+            } else {
+                k -- ;
+                impKRec(raiz.getIzq(),k);
+                impKRec(raiz.getDer(),k);
+            }
+
+        }
 
 
+   //     Desarrolle un algoritmo que, recibiendo un valor entero k, imprima la cantidad de elementos del nivel k.
+    }
+    public int EnElK(int k){
+        return EnElKRec(this.raiz,k, 0, 0);
+    }
+
+    private int EnElKRec(NodoABB raiz, int k, int cant,int p) {
+        if(raiz != null){
+            if(k == p){
+                cant ++;
+                EnElKRec(raiz.getIzq(),k,cant,p);
+                EnElKRec(raiz.getDer(),k,cant,p);
+                return cant;
+
+            }else {
+                p++;
+                return  EnElKRec(raiz.getIzq(),k,cant,p) +
+                        EnElKRec(raiz.getDer(),k,cant,p);
+            }
+
+        } else {
+            return 0;
+        }
+    }
 }
 
 

@@ -174,4 +174,23 @@ public class AB {
         return raiz != null ? new NodoAB(raiz.getDato(), clonAux2(raiz.getIzq()), clonAux2(raiz.getDer())) : null;
     }
 
+    public int ElementosEntre(int min, int max){
+        return ElementosEntreRec(this.raiz,min, max);
+    }
+
+    private int ElementosEntreRec(NodoAB raiz, int min, int max) {
+        if(raiz != null){
+            if(raiz.getDato() > min && raiz.getDato()<max){
+                return 1 + ElementosEntreRec(raiz.getIzq(),min,max)+
+                        ElementosEntreRec(raiz.getDer(),min,max);
+            } else {
+              return  ElementosEntreRec(raiz.getIzq(),min,max)+
+                        ElementosEntreRec(raiz.getDer(),min,max);
+
+            }
+        } else {
+            return 0;
+        }
+    }
+
 }

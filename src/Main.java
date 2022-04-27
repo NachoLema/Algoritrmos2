@@ -1,3 +1,5 @@
+import AB.AB;
+import AB.NodoAB;
 import ABB.ABB;
 import ABB.NodoABB;
 
@@ -33,7 +35,20 @@ public static void main(String[]args){
 
        // System.out.println(arbol.AbbPorNivel2());
        // System.out.println(arbol.CantidadEnK(2));
-        System.out.println(arbol.CantidadElementosEnNivel(2));
+       // System.out.println(arbol.CantidadElementosEnNivel(2));
+        //System.out.println(arbol.RetNivelK(21));
+       // arbol.ImpK(2);
+
+
+        NodoAB subIzq1=new NodoAB(6,new NodoAB(4,null,null),new NodoAB(9,null,null));
+        NodoAB subDer1=new NodoAB(18,new NodoAB(15,null,null),new NodoAB(21,null,null));
+        NodoAB raiz1=new NodoAB(10,subIzq1,subDer1);
+
+        AB arbol2= new AB(raiz1);
+
+       // System.out.println(arbol2.altura());
+       // System.out.println(arbol.EnElK(1));
+        System.out.println(arbol2.ElementosEntre(8, 18));
 
 
 
