@@ -312,6 +312,41 @@ public class ABB {
     }
 
 
+
+    public int altura() {
+
+        return alturaRecursiva(raiz);
+    }
+
+    private int alturaRecursiva(NodoABB nodo) {
+        if (nodo == null) {
+            return -1;
+        } else {
+            return 1 + Math.max(alturaRecursiva(nodo.getIzq()), alturaRecursiva(nodo.getDer()));
+        }
+    }
+
+
+    public void mostrarElementosNiveles(){
+
+        mostrarElementosNivelesAux(altura());
+    }
+
+    private void  mostrarElementosNivelesAux (int altura){
+
+        if ( altura >= 0){
+            System.out.println("elementos del nivel : " + altura);
+            elementosNivel(altura);
+            altura--;
+            mostrarElementosNivelesAux(altura);
+        }
+
+    }
+
+
+
+
+
     public ArrayList<String> elementosYsuNivel() {
         return elementosYsuNivelAux(raiz, 0, new ArrayList<String>());
     }
@@ -357,6 +392,63 @@ public class ABB {
         return 0;
 
     }
+
+    public void printLevelOrder()
+    {
+        int h = altura();
+        int i;
+        for (i=0; i<=h; i++)
+        {
+            System.out.println("Nivel: " + i);
+            printGivenLevel(raiz, i);
+        }
+    }
+    /* Print nodes at a given level */
+    void printGivenLevel(NodoABB root, int level)
+    {
+        if (root == null)
+            return;
+        if (level == 0)
+            System.out.println(root.getDato());
+        else if (level > 0)
+        {
+            printGivenLevel(root.getIzq(), level-1);
+            printGivenLevel(root.getDer(), level-1);
+        }
+    }
+
+
+
+    public void printLevelOrderString(String a)
+    {
+        int h = altura();
+        int i;
+        for (i=0; i<=h; i++)
+        {
+            System.out.println(i + "\n" + a);
+            printGivenLevelString(raiz, i);
+        }
+    }
+    /* Print nodes at a given level */
+    void printGivenLevelString(NodoABB root, int level)
+    {
+        if (root == null)
+            return;
+        if (level == 0)
+            System.out.println(root.getDato());
+        else if (level > 0)
+        {
+            printGivenLevel(root.getIzq(), level-1);
+            printGivenLevel(root.getDer(), level-1);
+        }
+    }
+
+
+
+
+
+
+
 
 
 
