@@ -1,5 +1,7 @@
 package AB;
 
+
+
 public class AB {
     private NodoAB raiz;
 
@@ -101,6 +103,7 @@ public class AB {
         if (raiz.getDer() == null && raiz.getIzq() == null) {
             return true;
         } else {
+
             return equilibradoRec(raiz.getIzq()) && equilibradoRec(raiz.getDer());
         }
     }
@@ -192,5 +195,12 @@ public class AB {
             return 0;
         }
     }
+
+
+
+
+
+
+
 
 }
